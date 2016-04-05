@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+    <script src="http://www.jsviews.com/download/jsrender.js"></script>
+</head>
+<body>
+
+<div id="result"></div>
+
+<script id="myTmpl" type="text/x-jsrender">
+
+
+<!-- 配列内のオブジェクトは勝手にループする？ -->
+<p>私の名前は{{:name}}です</p>
+
+</script>
+
+<script>
+    var tmpl = $.templates("#myTmpl"); // Get compiled template
+    var data = [
+        {name: "taro"},
+        {name: "jiro"}
+    ];
+    var html = tmpl.render(data);      // Render template using data - as HTML string
+    $("#result").html(html);           // Insert HTML string into DOM
+</script>
+</body>
+</html>
